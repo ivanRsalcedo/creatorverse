@@ -1,42 +1,131 @@
 #root {
-  max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  width: 100%;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.layout {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: center;
+  padding: 40px 24px;
 }
 
 .card {
-  padding: 2em;
+  position: relative;
+  flex: 0 1 360px;
+  min-height: 320px;
+  border: 1px solid white;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #0b0c14;
+  display: flex;
+  flex-direction: column;
+  padding: 18px;
 }
 
-.read-the-docs {
-  color: #888;
+.cardBg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.35;
+}
+
+.cardTop,
+.cardBody {
+  z-index: 1;
+}
+
+.cardTop {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.cardTitle {
+  margin: 0;
+  font-size: 28px;
+  text-transform: uppercase;
+}
+
+.cardIcons {
+  display: flex;
+  gap: 10px;
+}
+
+.iconBtn {
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  background: white;
+  font-weight: 1000;
+}
+
+.cardBody {
+  margin-top: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+  justify-content: flex-end;
+}
+
+.cardDesc {
+  margin: 0;
+}
+
+.channelLink {
+  text-decoration: none;
+  font-weight: 1000;
+}
+
+.profilePage {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 50px;
+}
+
+.profileCard {
+  width: min(720px, 100%);
+  border-radius: 16px;
+  background: #0b0c14;
+  padding: 38px;
+  text-align: center;
+}
+
+.profileImg {
+  width: 230px;
+  height: 230px;
+  border-radius: 999px;
+  border: 10px solid white;
+  margin-bottom: 16px;
+}
+
+.profileName {
+  margin: 0 0 25px 0;
+  text-transform: uppercase;
+}
+
+.profileDesc {
+  margin: 10px auto 22px auto;
+}
+
+.profileActions {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+}
+
+.btn {
+  padding: 12px 18px;
+  border-radius: 10px;
+  background: darkslateblue;
+  color: white;
 }
