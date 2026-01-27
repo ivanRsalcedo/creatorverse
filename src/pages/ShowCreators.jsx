@@ -1,3 +1,15 @@
-export default function ShowCreators() {
-    return <h1>ShowCreators Page</h1>;
+import Card from '../components/Card'
+
+export default function ShowCreators({ creators }) {
+    if (!creators || creators.length === 0) {
+        return <p>No creators found.</p>
+    }
+
+    return (
+        <div>
+            {creators.map((creator) => (
+                <Card key={creator.id} creator={creator} />
+            ))}
+        </div>
+    )
 }
