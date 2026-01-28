@@ -12,24 +12,28 @@ import AddCreator from "./pages/AddCreator";
 function App() {
   const [creators, setCreators] = useState([])
 
-  useEffect(() => {
-    const fetchCreators = async () => {
-      const { data, error } = await supabase.from('creators').select()
-      if (error) {
-        console.error(error)
-        return
-      }
-      setCreators(data)
-    }
+  const fetchCreators = async () => {
+  const { data, error } = await supabase
+    .from("creators")
+    .select("*")
+    .order("name", { ascending: true });
 
+  if (error) {
+    console.error(error);
+    return;
+  }
+  setCreators(data);
+};
+
+  useEffect(() => {
     fetchCreators()
   }, [])
 
   const routes = useRoutes([
     { path: "/", element: <ShowCreators creators={creators} /> },
-    { path: "/new", element: <AddCreator /> },
+    { path: "/new", element: <AddCreator fetchCreators={fetchCreators} /> },
     { path: "/creators/:id", element: <ViewCreator /> },
-    { path: "/creators/:id/edit", element: <EditCreator /> },
+    { path: "/creators/:id/edit", element: <EditCreator fetchCreators={fetchCreators} /> },
   ]);
 
   return routes;

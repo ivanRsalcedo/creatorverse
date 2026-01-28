@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { supabase } from "../client";
 
-export default function AddCreator() {
+export default function AddCreator({ fetchCreators }) {
     const navigate = useNavigate();
 
     const [form, setForm] = useState({
@@ -22,6 +22,8 @@ export default function AddCreator() {
         await supabase
             .from("creators")
             .insert([form]);
+
+        await fetchCreators();
 
         navigate("/");
     };
