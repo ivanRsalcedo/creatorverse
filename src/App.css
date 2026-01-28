@@ -1,6 +1,7 @@
 #root {
   margin: 0 auto;
   width: 100%;
+  text-align: center;
 }
 
 .layout {
@@ -22,6 +23,7 @@
   display: flex;
   flex-direction: column;
   padding: 18px;
+  text-align: left;
 }
 
 .cardBg {
@@ -165,4 +167,17 @@
 
 .btn.danger {
   background: #c43d3d;
+}
+
+.siteHeader {
+  padding: 40px 0 20px 0;
+}
+
+.siteHeader h1 {
+  margin: 0;
+  font-size: 5rem;
+}
+
+.siteHeader p {
+  margin: 0 0 10px 0;
 }

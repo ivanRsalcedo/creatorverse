@@ -13,16 +13,16 @@ function App() {
   const [creators, setCreators] = useState([])
 
   const fetchCreators = async () => {
-  const { data, error } = await supabase
-    .from("creators")
-    .select("*")
+    const { data, error } = await supabase
+      .from("creators")
+      .select("*")
 
-  if (error) {
-    console.error(error);
-    return;
-  }
-  setCreators(data);
-};
+    if (error) {
+      console.error(error);
+      return;
+    }
+    setCreators(data);
+  };
 
   useEffect(() => {
     fetchCreators()
@@ -35,7 +35,15 @@ function App() {
     { path: "/creators/:id/edit", element: <EditCreator fetchCreators={fetchCreators} /> },
   ]);
 
-  return routes;
+  return (
+    <div className='app'>
+      <header className='siteHeader'>
+        <h1>CREATORVERSE</h1>
+        <p>(figure drawing edition)</p>
+      </header>
+      {routes}
+    </div>
+  );
 }
 
 export default App;
