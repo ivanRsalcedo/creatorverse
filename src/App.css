@@ -162,3 +162,7 @@
   gap: 12px;
   justify-content: center;
 }
+
+.btn.danger {
+  background: #c43d3d;
+}

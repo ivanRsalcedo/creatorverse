@@ -16,7 +16,6 @@ function App() {
   const { data, error } = await supabase
     .from("creators")
     .select("*")
-    .order("name", { ascending: true });
 
   if (error) {
     console.error(error);

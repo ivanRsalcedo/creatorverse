@@ -58,6 +58,21 @@ export default function EditCreator({ fetchCreators }) {
         navigate(`/creators/${id}`);
     };
 
+    const handleDelete = async () => {
+        const { error } = await supabase
+            .from("creators")
+            .delete()
+            .eq("id", id);
+
+        if (error) {
+            console.error(error);
+            return;
+        }
+
+        await fetchCreators();
+        navigate("/");
+    };
+
     return (
         <div className="formPage">
             <form className="formCard" onSubmit={handleSubmit}>
@@ -94,6 +109,9 @@ export default function EditCreator({ fetchCreators }) {
                 <div className="actions">
                     <button className="btn" type="submit">Save</button>
                     <Link className="btn" to={`/creators/${id}`}>Cancel</Link>
+                    <button className="btn danger" type="button" onClick={handleDelete}>
+                        Delete
+                    </button>
                 </div>
             </form>
         </div>
